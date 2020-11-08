@@ -5,7 +5,3 @@
 bin/
 build/
 lib/
-
-# Git Plugin
-git_api.gdnlib
-git_api.gdns
