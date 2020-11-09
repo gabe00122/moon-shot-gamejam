@@ -9,25 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "EditorVCSInterface",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
+"base": "Node",
+"class": "AsepriteImportData",
+"language": "GDScript",
+"path": "res://addons/aseprite_importer/classes/AsepriteImportData.gd"
+}, {
+"base": "Node",
+"class": "AsepriteImporter",
+"language": "GDScript",
+"path": "res://addons/aseprite_importer/classes/AsepriteImporter.gd"
+}, {
+"base": "Node",
+"class": "EditorTheme",
+"language": "GDScript",
+"path": "res://addons/aseprite_importer/classes/EditorTheme.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"AsepriteImportData": "",
+"AsepriteImporter": "",
+"EditorTheme": ""
 }
 
 [application]
 
 config/name="MoonShot"
-run/main_scene="res://Scenes/MainScene.tscn"
+run/main_scene="res://scenes/main/Main.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "aseprite_importer" )
 
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+singletons=[  ]
