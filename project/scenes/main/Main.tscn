@@ -4,14 +4,10 @@
 
 [node name="Main" type="Node"]
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( 184.526, 114.829 )
 
-[node name="Gui" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Gui" type="CanvasLayer" parent="."]
