@@ -42,6 +42,7 @@ window/size/width=384
 window/size/height=216
 window/size/test_width=1152
 window/size/test_height=648
+window/vsync/vsync_via_compositor=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -55,9 +56,9 @@ singletons=[  ]
 
 [global]
 
-"v sync"=false
-over=false
-font=false
+"v sync"=true
+snap=false
+background=false
 
 [importer_defaults]
 
@@ -117,4 +118,4 @@ right={
 [rendering]
 
 quality/driver/driver_name="GLES2"
-quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
