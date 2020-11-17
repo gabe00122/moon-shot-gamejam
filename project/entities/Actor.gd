@@ -1,1 +1,1 @@
-extends KinematicBody2D
+extends RigidBody2D
