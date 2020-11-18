@@ -39,7 +39,9 @@ func _handle_bounce_sound(collision: Node) -> void:
 	if bounce_sound != "" && bounce_sound_min_velocity <= impact_velocity:
 		SoundEffectPlayerPool.play(
 			bounce_sound,
-			lerp(bounce_sound_min_volume,
-			bounce_sound_max_volume,
-			(impact_velocity - bounce_sound_min_velocity) / max_speed)
+			lerp(
+				bounce_sound_min_volume,
+				bounce_sound_max_volume,
+				min((impact_velocity - bounce_sound_min_velocity) / max_speed, 1)
+			)
 		)

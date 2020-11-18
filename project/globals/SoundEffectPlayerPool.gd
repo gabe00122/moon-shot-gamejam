@@ -8,6 +8,11 @@ const SOUND_EFFECTS := {
 }
 
 var avalible := []
+var batch := {}
+
+func play(sound_name: String, volume: float = 0) -> void:
+	if SOUND_EFFECTS.has(sound_name):
+		batch[sound_name] = max(volume, batch.get(sound_name, volume))
 
 func _ready() -> void:
 	for i in POOL_SIZE:
@@ -20,9 +25,14 @@ func _ready() -> void:
 func _on_player_finished(player: AudioStreamPlayer) -> void:
 	avalible.append(player)
 
-func play(sound_name: String, volume: float = 0) -> void:
-	if !avalible.empty() && SOUND_EFFECTS.has(sound_name):
+func _physics_process(delta):
+	for sound_name in batch.keys():
+		if avalible.empty():
+			break
+
 		var player: AudioStreamPlayer = avalible.pop_back()
 		player.stream = SOUND_EFFECTS[sound_name]
-		player.volume_db = volume
+		player.volume_db = batch[sound_name]
 		player.play()
+
+	batch.clear()
