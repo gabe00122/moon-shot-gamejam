@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://music/test_music.ogg" type="AudioStream" id=2]
 [ext_resource path="res://background_hyades.png" type="Texture" id=3]
 [ext_resource path="res://entities/moon/Moon.tscn" type="PackedScene" id=4]
 
@@ -69,3 +70,8 @@ position = Vector2( 394, 107 )
 shape = SubResource( 4 )
 
 [node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -15.0
+autoplay = true
