@@ -12,12 +12,13 @@ radius = 8.11076
 
 [node name="Moon" type="RigidBody2D"]
 collision_layer = 16
-collision_mask = 27
+collision_mask = 11
 mass = 0.25
 physics_material_override = SubResource( 1 )
 continuous_cd = 2
 contacts_reported = 2
 contact_monitor = true
+angular_velocity = 10.0
 script = ExtResource( 2 )
 max_speed = 300.0
 acceleration = 10.0

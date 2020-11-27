@@ -16,7 +16,7 @@ func get_input() -> Vector2:
 		input.y -= 1
 	
 	return input
-
+	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("fire_up"):
 		_fire_moon(Vector2(0, -1))

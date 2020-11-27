@@ -17,13 +17,16 @@ func get_input() -> Vector2:
 func _physics_process(delta) -> void:
 	last_frame_linear_velocity = linear_velocity
 	var direction = get_input()
-	
-	if direction.length() > 0:
-		apply_central_impulse(direction.normalized() * acceleration * delta)
 
-func _integrate_forces(state):
-	if max_speed >= 0 && state.linear_velocity.length() > max_speed:
-		state.linear_velocity = state.linear_velocity.normalized() * max_speed
+	var amount_over := linear_velocity.length() - max_speed
+	if amount_over > 0:
+		_apply_movement_impules(linear_velocity.normalized() * -min(amount_over, acceleration * delta))
+
+	if direction.length() > 0:
+		_apply_movement_impules(direction.normalized() * acceleration * delta)
+
+func _apply_movement_impules(vec: Vector2) -> void:
+	apply_central_impulse(vec)
 
 func _on_collision(collision: Node) -> void:
 	_handle_bounce_sound(collision)
